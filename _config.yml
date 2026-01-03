@@ -1,7 +1,6 @@
 title: "Sanket Vishwakarma"
 description: "Data Engineer | Building scalable data pipelines and analytics solutions"
 url: "https://sanketvishwakarma2015.github.io"
-theme: minima
 
 # Build settings
 markdown: kramdown
@@ -13,8 +12,7 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
-
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+  - deploy.sh
+  - deploy.ps1
+  - SETUP_GUIDE.md
+  - DEPLOYMENT_READY.md
