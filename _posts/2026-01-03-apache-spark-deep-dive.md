@@ -1,6 +1,6 @@
 ---
 title: "Apache Spark Deep Dive — From Basics to Production Optimization"
-date: 2026-01-04
+date: 2026-01-03
 layout: post
 author: Sanket Vishwakarma
 excerpt: "A comprehensive guide to Apache Spark covering architecture, transformations, optimizations, monitoring, and production best practices. Everything a data engineer needs to master Spark development."
