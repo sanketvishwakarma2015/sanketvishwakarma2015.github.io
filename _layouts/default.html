@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="stars2" id="stars2"></div>
+    <div class="stars3" id="stars3"></div>
+    
+    <nav class="navbar">
+        <div class="container">
+            <a href="{{ '/' | relative_url }}" class="logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">SV</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
+                <a href="{{ '/about/' | relative_url }}" class="nav-link">About</a>
+                <a href="{{ '/blog/' | relative_url }}" class="nav-link">Blog</a>
+                <a href="{{ '/contact/' | relative_url }}" class="nav-link">Contact</a>
+                <a href="{{ '/resume_sanket_vishwakarma.pdf' | relative_url }}" class="nav-link" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/sanket-vishwakarma-902953109/" class="nav-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/sanketvishwakarma2015" class="nav-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
+        {{ content }}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Sanket Vishwakarma. Built with <i class="fas fa-heart"></i> and Jekyll</p>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="{{ '/assets/js/stars.js' | relative_url }}"></script>
+</body>
+</html>

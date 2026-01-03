@@ -1,3 +1,20 @@
 title: "Sanket Vishwakarma"
-description: "Data Engineer Portfolio"
+description: "Data Engineer | Building scalable data pipelines and analytics solutions"
+url: "https://sanketvishwakarma2015.github.io"
 theme: minima
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
