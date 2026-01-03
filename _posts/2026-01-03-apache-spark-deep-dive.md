@@ -20,6 +20,211 @@ excerpt: "A comprehensive guide to Apache Spark covering architecture, transform
 
 ---
 
+## 📊 Complete Spark Ecosystem at a Glance
+
+<div class="architecture-diagram" style="margin: 2rem 0;">
+    <div class="arch-layer" style="background: linear-gradient(135deg, #1e293b, #334155);">
+        <div class="arch-layer-header" style="border-color: #3b82f6;">
+            <i class="fas fa-laptop-code"></i>
+            <h4>📝 Your Application Code</h4>
+        </div>
+        <div class="arch-layer-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                <div style="text-align: center; padding: 0.5rem; background: rgba(59, 130, 246, 0.1); border-radius: 8px;">
+                    <i class="fab fa-python" style="font-size: 1.5rem; color: #3b82f6;"></i>
+                    <div style="margin-top: 0.5rem; font-size: 0.85rem;">Python/PySpark</div>
+                </div>
+                <div style="text-align: center; padding: 0.5rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
+                    <i class="fas fa-fire" style="font-size: 1.5rem; color: #ef4444;"></i>
+                    <div style="margin-top: 0.5rem; font-size: 0.85rem;">Scala</div>
+                </div>
+                <div style="text-align: center; padding: 0.5rem; background: rgba(234, 179, 8, 0.1); border-radius: 8px;">
+                    <i class="fab fa-java" style="font-size: 1.5rem; color: #eab308;"></i>
+                    <div style="margin-top: 0.5rem; font-size: 0.85rem;">Java</div>
+                </div>
+                <div style="text-align: center; padding: 0.5rem; background: rgba(34, 197, 94, 0.1); border-radius: 8px;">
+                    <i class="fas fa-database" style="font-size: 1.5rem; color: #22c55e;"></i>
+                    <div style="margin-top: 0.5rem; font-size: 0.85rem;">SQL</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+    
+    <div class="arch-layer" style="background: linear-gradient(135deg, #581c87, #7e22ce);">
+        <div class="arch-layer-header" style="border-color: #a855f7;">
+            <i class="fas fa-cubes"></i>
+            <h4>🎯 Spark Core APIs</h4>
+        </div>
+        <div class="arch-layer-content">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                <div style="text-align: center; padding: 0.75rem; background: rgba(168, 85, 247, 0.15); border-radius: 8px; border: 1px solid rgba(168, 85, 247, 0.3);">
+                    <div style="font-weight: bold; color: #a855f7; margin-bottom: 0.25rem;">RDD</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary);">Low-level API</div>
+                </div>
+                <div style="text-align: center; padding: 0.75rem; background: rgba(168, 85, 247, 0.15); border-radius: 8px; border: 1px solid rgba(168, 85, 247, 0.3);">
+                    <div style="font-weight: bold; color: #a855f7; margin-bottom: 0.25rem;">DataFrame</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary);">Structured API</div>
+                </div>
+                <div style="text-align: center; padding: 0.75rem; background: rgba(168, 85, 247, 0.15); border-radius: 8px; border: 1px solid rgba(168, 85, 247, 0.3);">
+                    <div style="font-weight: bold; color: #a855f7; margin-bottom: 0.25rem;">Dataset</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary);">Type-safe API</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+    
+    <div class="arch-layer" style="background: linear-gradient(135deg, #0c4a6e, #0369a1);">
+        <div class="arch-layer-header" style="border-color: #0ea5e9;">
+            <i class="fas fa-layer-group"></i>
+            <h4>🚀 Spark Libraries (Built on Core)</h4>
+        </div>
+        <div class="arch-layer-content">
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                <div style="padding: 0.75rem; background: rgba(14, 165, 233, 0.1); border-radius: 8px; border-left: 3px solid #0ea5e9;">
+                    <div style="font-weight: bold; color: #0ea5e9; margin-bottom: 0.25rem;">
+                        <i class="fas fa-chart-line"></i> Spark SQL
+                    </div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Structured data processing with SQL queries</div>
+                </div>
+                <div style="padding: 0.75rem; background: rgba(14, 165, 233, 0.1); border-radius: 8px; border-left: 3px solid #0ea5e9;">
+                    <div style="font-weight: bold; color: #0ea5e9; margin-bottom: 0.25rem;">
+                        <i class="fas fa-stream"></i> Spark Streaming
+                    </div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Real-time data stream processing</div>
+                </div>
+                <div style="padding: 0.75rem; background: rgba(14, 165, 233, 0.1); border-radius: 8px; border-left: 3px solid #0ea5e9;">
+                    <div style="font-weight: bold; color: #0ea5e9; margin-bottom: 0.25rem;">
+                        <i class="fas fa-brain"></i> MLlib
+                    </div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Distributed machine learning library</div>
+                </div>
+                <div style="padding: 0.75rem; background: rgba(14, 165, 233, 0.1); border-radius: 8px; border-left: 3px solid #0ea5e9;">
+                    <div style="font-weight: bold; color: #0ea5e9; margin-bottom: 0.25rem;">
+                        <i class="fas fa-project-diagram"></i> GraphX
+                    </div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Graph processing and analysis</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+    
+    <div class="arch-layer" style="background: linear-gradient(135deg, #065f46, #047857);">
+        <div class="arch-layer-header" style="border-color: #10b981;">
+            <i class="fas fa-cog"></i>
+            <h4>⚙️ Execution Engine</h4>
+        </div>
+        <div class="arch-layer-content">
+            <div style="display: flex; align-items: center; justify-content: space-around; gap: 1rem;">
+                <div style="flex: 1; text-align: center; padding: 0.75rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                    <div style="font-weight: bold; color: #10b981; margin-bottom: 0.5rem;">Catalyst Optimizer</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary);">Query optimization & plan generation</div>
+                </div>
+                <div style="font-size: 1.5rem; color: #10b981;">→</div>
+                <div style="flex: 1; text-align: center; padding: 0.75rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                    <div style="font-weight: bold; color: #10b981; margin-bottom: 0.5rem;">Tungsten Engine</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary);">Memory management & code generation</div>
+                </div>
+                <div style="font-size: 1.5rem; color: #10b981;">→</div>
+                <div style="flex: 1; text-align: center; padding: 0.75rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                    <div style="font-weight: bold; color: #10b981; margin-bottom: 0.5rem;">DAG Scheduler</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary);">Task scheduling & execution</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+    
+    <div class="arch-layer" style="background: linear-gradient(135deg, #7c2d12, #9a3412);">
+        <div class="arch-layer-header" style="border-color: #f97316;">
+            <i class="fas fa-sitemap"></i>
+            <h4>🎛️ Cluster Manager</h4>
+        </div>
+        <div class="arch-layer-content">
+            <div style="display: flex; justify-content: space-around; gap: 1rem;">
+                <div style="text-align: center; padding: 0.75rem; flex: 1; background: rgba(249, 115, 22, 0.1); border-radius: 8px;">
+                    <i class="fas fa-server" style="font-size: 1.5rem; color: #f97316;"></i>
+                    <div style="margin-top: 0.5rem; font-weight: bold; color: #f97316;">YARN</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Hadoop ecosystem</div>
+                </div>
+                <div style="text-align: center; padding: 0.75rem; flex: 1; background: rgba(249, 115, 22, 0.1); border-radius: 8px;">
+                    <i class="fas fa-dharmachakra" style="font-size: 1.5rem; color: #f97316;"></i>
+                    <div style="margin-top: 0.5rem; font-weight: bold; color: #f97316;">Kubernetes</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Cloud-native</div>
+                </div>
+                <div style="text-align: center; padding: 0.75rem; flex: 1; background: rgba(249, 115, 22, 0.1); border-radius: 8px;">
+                    <i class="fas fa-network-wired" style="font-size: 1.5rem; color: #f97316;"></i>
+                    <div style="margin-top: 0.5rem; font-weight: bold; color: #f97316;">Standalone</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Built-in</div>
+                </div>
+                <div style="text-align: center; padding: 0.75rem; flex: 1; background: rgba(249, 115, 22, 0.1); border-radius: 8px;">
+                    <i class="fas fa-cube" style="font-size: 1.5rem; color: #f97316;"></i>
+                    <div style="margin-top: 0.5rem; font-weight: bold; color: #f97316;">Mesos</div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Legacy option</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+    
+    <div class="arch-layer" style="background: linear-gradient(135deg, #4c1d95, #5b21b6);">
+        <div class="arch-layer-header" style="border-color: #8b5cf6;">
+            <i class="fas fa-hdd"></i>
+            <h4>💾 Data Storage Layer</h4>
+        </div>
+        <div class="arch-layer-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem;">
+                <div style="text-align: center; padding: 0.5rem; background: rgba(139, 92, 246, 0.1); border-radius: 6px;">
+                    <i class="fas fa-database" style="color: #8b5cf6;"></i>
+                    <div style="font-size: 0.75rem; margin-top: 0.25rem;">HDFS</div>
+                </div>
+                <div style="text-align: center; padding: 0.5rem; background: rgba(139, 92, 246, 0.1); border-radius: 6px;">
+                    <i class="fab fa-aws" style="color: #8b5cf6;"></i>
+                    <div style="font-size: 0.75rem; margin-top: 0.25rem;">S3</div>
+                </div>
+                <div style="text-align: center; padding: 0.5rem; background: rgba(139, 92, 246, 0.1); border-radius: 6px;">
+                    <i class="fab fa-microsoft" style="color: #8b5cf6;"></i>
+                    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Azure Blob</div>
+                </div>
+                <div style="text-align: center; padding: 0.5rem; background: rgba(139, 92, 246, 0.1); border-radius: 6px;">
+                    <i class="fab fa-google" style="color: #8b5cf6;"></i>
+                    <div style="font-size: 0.75rem; margin-top: 0.25rem;">GCS</div>
+                </div>
+                <div style="text-align: center; padding: 0.5rem; background: rgba(139, 92, 246, 0.1); border-radius: 6px;">
+                    <i class="fas fa-table" style="color: #8b5cf6;"></i>
+                    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Delta Lake</div>
+                </div>
+                <div style="text-align: center; padding: 0.5rem; background: rgba(139, 92, 246, 0.1); border-radius: 6px;">
+                    <i class="fas fa-mountain" style="color: #8b5cf6;"></i>
+                    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Iceberg</div>
+                </div>
+                <div style="text-align: center; padding: 0.5rem; background: rgba(139, 92, 246, 0.1); border-radius: 6px;">
+                    <i class="fas fa-file-alt" style="color: #8b5cf6;"></i>
+                    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Parquet</div>
+                </div>
+                <div style="text-align: center; padding: 0.5rem; background: rgba(139, 92, 246, 0.1); border-radius: 6px;">
+                    <i class="fas fa-feather" style="color: #8b5cf6;"></i>
+                    <div style="font-size: 0.75rem; margin-top: 0.25rem;">ORC</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="quote-box">
+    <i class="fas fa-quote-left"></i>
+    <p><strong>The Big Picture:</strong> Your code → Spark APIs → Optimized execution → Distributed across cluster → Process data from any storage. This layered architecture makes Spark powerful yet flexible.</p>
+</div>
+
+---
+
 ## 🎯 What is Apache Spark?
 
 Apache Spark is a **unified analytics engine** for large-scale data processing. Unlike traditional MapReduce, Spark keeps data in-memory, making it up to **100x faster** for certain workloads.
