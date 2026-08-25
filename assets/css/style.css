@@ -69,6 +69,27 @@ body {
     }
 }
 
+/* ===== 3D HERO CANVAS ===== */
+.hero3d-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, black 40%, transparent 90%);
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 90%);
+}
+
+.hero h1,
+.hero .subtitle,
+.hero .description,
+.hero .cta-buttons {
+    position: relative;
+    z-index: 1;
+}
+
 /* ===== CONTAINER ===== */
 .container {
     max-width: 1200px;
@@ -321,6 +342,10 @@ body {
     margin-top: 2rem;
 }
 
+.cards-grid {
+    perspective: 1200px;
+}
+
 .card {
     background: var(--bg-card);
     backdrop-filter: blur(10px);
@@ -328,6 +353,8 @@ body {
     border-radius: 12px;
     padding: 2rem;
     transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
     position: relative;
     overflow: hidden;
 }

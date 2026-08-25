@@ -16,3 +16,5 @@ exclude:
   - deploy.ps1
   - SETUP_GUIDE.md
   - DEPLOYMENT_READY.md
+  - tools
+  - _preview

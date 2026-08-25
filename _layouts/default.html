@@ -15,7 +15,8 @@
     <div class="stars" id="stars"></div>
     <div class="stars2" id="stars2"></div>
     <div class="stars3" id="stars3"></div>
-    
+    <canvas id="hero3d" class="hero3d-canvas"></canvas>
+
     <nav class="navbar">
         <div class="container">
             <a href="{{ '/' | relative_url }}" class="logo">
@@ -57,5 +58,8 @@
     </button>
 
     <script src="{{ '/assets/js/stars.js' | relative_url }}"></script>
+    <script type="module" src="{{ '/assets/js/hero3d.js' | relative_url }}"></script>
+    <script type="module" src="{{ '/assets/js/animations.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/tilt.js' | relative_url }}"></script>
 </body>
 </html>
