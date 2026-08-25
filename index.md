@@ -11,7 +11,7 @@ layout: default
         Passionate about data engineering, cloud technologies, and creating efficient ETL workflows.
     </p>
     <div class="cta-buttons">
-        <a href="/resume_sanket_vishwakarma.pdf" class="btn btn-primary" target="_blank">
+        <a href="/resume_sanket_vishwakarma.pdf?v={{ site.time | date: '%s' }}" class="btn btn-primary" target="_blank">
             <i class="fas fa-download"></i> View Resume
         </a>
         <a href="https://www.linkedin.com/in/sanket-vishwakarma-902953109/" class="btn btn-secondary" target="_blank">

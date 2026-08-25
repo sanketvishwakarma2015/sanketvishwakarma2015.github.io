@@ -84,7 +84,7 @@ permalink: /about/
                 <a href="https://github.com/sanketvishwakarma2015" class="btn btn-secondary" target="_blank">
                     <i class="fab fa-github"></i> GitHub
                 </a>
-                <a href="/resume_sanket_vishwakarma.pdf" class="btn btn-secondary" target="_blank">
+                <a href="/resume_sanket_vishwakarma.pdf?v={{ site.time | date: '%s' }}" class="btn btn-secondary" target="_blank">
                     <i class="fas fa-file-pdf"></i> Resume
                 </a>
             </div>
