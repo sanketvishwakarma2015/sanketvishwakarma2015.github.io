@@ -1,86 +1,83 @@
-// Scroll-reveal and stagger animations powered by Motion (motion.dev), the
-// standalone successor to Framer Motion for vanilla JS sites.
+// Scroll-driven animations: progress bar, section reveals, stagger groups,
+// hero entrance, counter animation, and 3D stage scale-in.
 import { animate, inView, stagger, scroll } from 'https://cdn.jsdelivr.net/npm/motion@10.18.0/+esm';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Top-of-page scroll progress bar.
-const progressBar = document.getElementById('scrollProgress');
-if (progressBar && !reduceMotion) {
-    scroll(animate(progressBar, { scaleX: [0, 1] }, { easing: 'linear' }));
+// -- SCROLL PROGRESS BAR ----------------------------------------------------
+const bar = document.getElementById('scrollProgress');
+if (bar && !reduceMotion) {
+  scroll(animate(bar, { scaleX: [0, 1] }, { easing: 'linear' }));
 }
 
-// Parallax drift for the hero 3D stage as the page scrolls.
-const heroStage = document.getElementById('heroStage');
-if (heroStage && !reduceMotion) {
-    scroll(animate(heroStage, { transform: ['translateY(0px)', 'translateY(80px)'] }, { easing: 'linear' }), {
-        target: document.querySelector('.hero'),
+if (reduceMotion) {
+  document.querySelectorAll('.section-label,.section-title,.section-subtitle,.card,.tech-badge,.blog-post,.cta-band').forEach(el => (el.style.opacity = 1));
+} else {
+  // -- GENERIC SINGLE-ELEMENT REVEAL ---------------------------------------
+  function revealOn(sel, from = 'translateY(22px)', dur = 0.65) {
+    document.querySelectorAll(sel).forEach(el => {
+      el.style.opacity = 0;
+      inView(el, () => animate(el, { opacity: [0,1], transform: [from, 'translateY(0)'] }, { duration: dur, easing: [0.22,1,0.36,1] }), { margin: '0px 0px -8% 0px' });
     });
-}
+  }
 
-function reveal(selector, options = {}) {
-    const targets = document.querySelectorAll(selector);
-    if (!targets.length) return;
+  revealOn('.section-label', 'translateY(14px)', 0.5);
+  revealOn('.section-title', 'translateY(20px)', 0.6);
+  revealOn('.section-subtitle', 'translateY(14px)', 0.5);
+  revealOn('.cta-band', 'translateY(28px)', 0.7);
 
-    if (reduceMotion) {
-        targets.forEach((el) => (el.style.opacity = 1));
-        return;
-    }
-
-    targets.forEach((el) => {
-        el.style.opacity = 0;
+  // -- STAGGER GROUPS ------------------------------------------------------
+  function staggerGroup(sel) {
+    document.querySelectorAll(sel).forEach(group => {
+      const items = [...group.children];
+      items.forEach(el => (el.style.opacity = 0));
+      inView(group, () => {
+        animate(items,
+          { opacity: [0,1], transform: ['translateY(24px)', 'translateY(0)'] },
+          { duration: 0.55, delay: stagger(0.08), easing: [0.22,1,0.36,1] }
+        );
+      }, { margin: '0px 0px -8% 0px' });
     });
+  }
+  staggerGroup('.cards-grid');
+  staggerGroup('.tech-stack');
+  staggerGroup('.blog-posts');
 
-    inView(selector, ({ target }) => {
-        animate(
-            target,
-            { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0)'] },
-            { duration: 0.6, easing: [0.22, 1, 0.36, 1], ...options }
-        );
-    }, { margin: '0px 0px -10% 0px' });
+  // -- HERO ENTRANCE --------------------------------------------------------
+  const heroCopy = document.querySelector('.hero-copy');
+  if (heroCopy) {
+    const els = heroCopy.querySelectorAll('.terminal-tag, h1, .typewriter-row, .hero-desc, .hero-stats, .cta-buttons');
+    animate([...els],
+      { opacity: [0,1], transform: ['translateY(18px)', 'translateY(0)'] },
+      { duration: 0.8, delay: stagger(0.1), easing: [0.22,1,0.36,1] }
+    );
+  }
+  const stage = document.getElementById('heroStage');
+  if (stage) {
+    animate(stage,
+      { opacity: [0,1], transform: ['scale(0.88) rotate(-4deg)', 'scale(1) rotate(0deg)'] },
+      { duration: 1.1, delay: 0.2, easing: [0.22,1,0.36,1] }
+    );
+  }
 }
 
-reveal('.section-title');
-reveal('.section-subtitle');
-
-// Stagger card/badge groups so they cascade in rather than pop together.
-document.querySelectorAll('.cards-grid, .tech-stack, .blog-posts').forEach((group) => {
-    const items = group.children;
-    if (!items.length) return;
-
-    if (reduceMotion) {
-        Array.from(items).forEach((el) => (el.style.opacity = 1));
-        return;
+// -- COUNTER ANIMATION -----------------------------------------------------
+// Runs regardless of reduceMotion (just skips the tween if reduced)
+document.querySelectorAll('.stat-num[data-count]').forEach(el => {
+  const target = parseInt(el.dataset.count, 10);
+  if (reduceMotion) { el.textContent = target; return; }
+  el.textContent = '0';
+  let started = false;
+  inView(el, () => {
+    if (started) return; started = true;
+    const t0 = performance.now();
+    const dur = 1400;
+    function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(ease * target);
+      if (p < 1) requestAnimationFrame(tick);
     }
-
-    Array.from(items).forEach((el) => (el.style.opacity = 0));
-
-    inView(group, () => {
-        animate(
-            items,
-            { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] },
-            { duration: 0.5, delay: stagger(0.08), easing: [0.22, 1, 0.36, 1] }
-        );
-    }, { margin: '0px 0px -10% 0px' });
+    requestAnimationFrame(tick);
+  });
 });
-
-// Hero entrance animation.
-if (!reduceMotion) {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        animate(
-            hero.querySelectorAll('.eyebrow, h1, .subtitle, .description, .cta-buttons'),
-            { opacity: [0, 1], transform: ['translateY(16px)', 'translateY(0)'] },
-            { duration: 0.7, delay: stagger(0.1), easing: [0.22, 1, 0.36, 1] }
-        );
-    }
-
-    const stage = document.getElementById('heroStage');
-    if (stage) {
-        animate(
-            stage,
-            { opacity: [0, 1], transform: ['scale(0.85)', 'scale(1)'] },
-            { duration: 0.9, delay: 0.2, easing: [0.22, 1, 0.36, 1] }
-        );
-    }
-}
