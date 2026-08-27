@@ -1,62 +1,65 @@
-// 3D animated hero background built with Three.js — a rotating field of
-// wireframe polyhedra connected by a floating particle mesh, reacting to mouse movement.
+// Bold 3D showcase piece for the hero — a glowing torus knot orbited by
+// wireframe satellites, built with Three.js, reacting to pointer movement.
 import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 
-const canvas = document.getElementById('hero3d');
-const hasHero = document.querySelector('.hero');
-if (canvas && hasHero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    // Anchor the canvas to the hero section itself so it scrolls away with it
-    // instead of floating over later sections.
-    hasHero.style.position = 'relative';
-    hasHero.insertBefore(canvas, hasHero.firstChild);
+const stage = document.getElementById('heroStage');
+
+if (stage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const canvas = document.createElement('canvas');
+    canvas.className = 'hero3d-canvas';
+    stage.appendChild(canvas);
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(55, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
-    camera.position.z = 12;
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 9);
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     const colors = [0x6366f1, 0x8b5cf6, 0xec4899];
-    const group = new THREE.Group();
-    scene.add(group);
 
-    // Floating wireframe polyhedra
-    const shapes = [];
-    for (let i = 0; i < 6; i++) {
-        const geometry = new THREE.IcosahedronGeometry(0.3 + Math.random() * 0.35, 0);
+    // Centerpiece: a glowing wireframe torus knot.
+    const knotGeometry = new THREE.TorusKnotGeometry(2, 0.55, 180, 24);
+    const knotMaterial = new THREE.MeshBasicMaterial({ color: 0x8b5cf6, wireframe: true, transparent: true, opacity: 0.85 });
+    const knot = new THREE.Mesh(knotGeometry, knotMaterial);
+    scene.add(knot);
+
+    // A soft glow behind the knot using a large transparent sprite.
+    const glowCanvas = document.createElement('canvas');
+    glowCanvas.width = glowCanvas.height = 256;
+    const gctx = glowCanvas.getContext('2d');
+    const gradient = gctx.createRadialGradient(128, 128, 0, 128, 128, 128);
+    gradient.addColorStop(0, 'rgba(139, 92, 246, 0.55)');
+    gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
+    gctx.fillStyle = gradient;
+    gctx.fillRect(0, 0, 256, 256);
+    const glowTexture = new THREE.CanvasTexture(glowCanvas);
+    const glowMaterial = new THREE.SpriteMaterial({ map: glowTexture, transparent: true, depthWrite: false });
+    const glow = new THREE.Sprite(glowMaterial);
+    glow.scale.set(9, 9, 1);
+    scene.add(glow);
+
+    // Orbiting satellite shapes.
+    const satellites = [];
+    for (let i = 0; i < 5; i++) {
+        const geometry = new THREE.IcosahedronGeometry(0.35 + Math.random() * 0.25, 0);
         const material = new THREE.MeshBasicMaterial({
             color: colors[i % colors.length],
             wireframe: true,
             transparent: true,
-            opacity: 0.22
+            opacity: 0.8
         });
         const mesh = new THREE.Mesh(geometry, material);
-        // Keep shapes away from the centered text column: push wide and further back.
-        const side = i % 2 === 0 ? -1 : 1;
-        mesh.position.set(
-            side * (5.5 + Math.random() * 3.5),
-            (Math.random() - 0.5) * 7,
-            -3 - Math.random() * 4
-        );
-        mesh.userData.spin = (Math.random() - 0.5) * 0.01;
-        group.add(mesh);
-        shapes.push(mesh);
+        const radius = 3.6 + Math.random() * 1.2;
+        mesh.userData = {
+            radius,
+            angle: (i / 5) * Math.PI * 2,
+            speed: 0.006 + Math.random() * 0.006,
+            tilt: (Math.random() - 0.5) * 2
+        };
+        scene.add(mesh);
+        satellites.push(mesh);
     }
-
-    // Particle field for depth
-    const particleCount = 180;
-    const positions = new Float32Array(particleCount * 3);
-    for (let i = 0; i < particleCount; i++) {
-        positions[i * 3] = (Math.random() - 0.5) * 20;
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 12;
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
-    }
-    const particleGeometry = new THREE.BufferGeometry();
-    particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const particleMaterial = new THREE.PointsMaterial({ color: 0x8b5cf6, size: 0.05, transparent: true, opacity: 0.6 });
-    const particles = new THREE.Points(particleGeometry, particleMaterial);
-    scene.add(particles);
 
     let mouseX = 0;
     let mouseY = 0;
@@ -66,10 +69,9 @@ if (canvas && hasHero && !window.matchMedia('(prefers-reduced-motion: reduce)').
     });
 
     function resize() {
-        const width = canvas.clientWidth;
-        const height = canvas.clientHeight;
-        renderer.setSize(width, height, false);
-        camera.aspect = width / height;
+        const size = stage.clientWidth;
+        renderer.setSize(size, stage.clientHeight || size, false);
+        camera.aspect = size / (stage.clientHeight || size);
         camera.updateProjectionMatrix();
     }
     window.addEventListener('resize', resize);
@@ -77,17 +79,27 @@ if (canvas && hasHero && !window.matchMedia('(prefers-reduced-motion: reduce)').
 
     function animate() {
         requestAnimationFrame(animate);
-        shapes.forEach((mesh) => {
-            mesh.rotation.x += mesh.userData.spin;
-            mesh.rotation.y += mesh.userData.spin;
+        knot.rotation.x += 0.0035;
+        knot.rotation.y += 0.005;
+        knot.rotation.z += (mouseX * 0.6 - knot.rotation.z) * 0.02;
+
+        satellites.forEach((mesh) => {
+            mesh.userData.angle += mesh.userData.speed;
+            const { radius, angle, tilt } = mesh.userData;
+            mesh.position.set(
+                Math.cos(angle) * radius,
+                Math.sin(angle) * radius * 0.6 + tilt,
+                Math.sin(angle * 0.7) * radius * 0.5
+            );
+            mesh.rotation.x += 0.01;
+            mesh.rotation.y += 0.01;
         });
-        particles.rotation.y += 0.0006;
-        group.rotation.y += (mouseX * 0.4 - group.rotation.y) * 0.03;
-        group.rotation.x += (mouseY * 0.2 - group.rotation.x) * 0.03;
-        camera.position.x += (mouseX * 1.2 - camera.position.x) * 0.02;
-        camera.position.y += (-mouseY * 1.2 - camera.position.y) * 0.02;
+
+        camera.position.x += (mouseX * 1.4 - camera.position.x) * 0.03;
+        camera.position.y += (-mouseY * 1.4 - camera.position.y) * 0.03;
         camera.lookAt(0, 0, 0);
         renderer.render(scene, camera);
     }
     animate();
 }
+

@@ -25,3 +25,8 @@ Thumbs.db
 # Backup files
 *~
 *.bak
+
+# Local preview tooling
+_preview/
+tools/__pycache__/
+

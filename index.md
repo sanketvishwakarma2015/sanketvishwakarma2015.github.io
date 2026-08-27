@@ -4,21 +4,28 @@ layout: default
 ---
 
 <section class="hero">
-    <h1>Sanket Vishwakarma</h1>
-    <p class="subtitle">&lt; Data Engineer /&gt;</p>
-    <p class="description">
-        Building scalable data pipelines, analytics solutions, and transforming raw data into actionable insights.
-        Passionate about data engineering, cloud technologies, and creating efficient ETL workflows.
-    </p>
-    <div class="cta-buttons">
-        <a href="/resume_sanket_vishwakarma.pdf?v={{ site.time | date: '%s' }}" class="btn btn-primary" target="_blank">
-            <i class="fas fa-download"></i> View Resume
-        </a>
-        <a href="https://www.linkedin.com/in/sanket-vishwakarma-902953109/" class="btn btn-secondary" target="_blank">
-            <i class="fab fa-linkedin"></i> Connect on LinkedIn
-        </a>
+    <div class="hero-grid">
+        <div class="hero-copy">
+            <p class="eyebrow">// online</p>
+            <h1>Sanket Vishwakarma</h1>
+            <p class="subtitle">&lt; Data Engineer /&gt;</p>
+            <p class="description">
+                Building scalable data pipelines, analytics solutions, and transforming raw data into actionable insights.
+                Passionate about data engineering, cloud technologies, and creating efficient ETL workflows.
+            </p>
+            <div class="cta-buttons">
+                <a href="/resume_sanket_vishwakarma.pdf?v={{ site.time | date: '%s' }}" class="btn btn-primary magnetic" target="_blank">
+                    <i class="fas fa-download"></i> View Resume
+                </a>
+                <a href="https://www.linkedin.com/in/sanket-vishwakarma-902953109/" class="btn btn-secondary magnetic" target="_blank">
+                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+        <div class="hero-stage" id="heroStage" aria-hidden="true"></div>
     </div>
 </section>
+
 
 <section class="section">
     <h2 class="section-title">What I Do</h2>
