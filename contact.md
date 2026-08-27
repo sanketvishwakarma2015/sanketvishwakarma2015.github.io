@@ -188,6 +188,7 @@ permalink: /contact/
 
 .contact-link {
     display: inline-block;
+    max-width: 100%;
     color: var(--accent-primary);
     text-decoration: none;
     font-weight: 600;
@@ -195,6 +196,8 @@ permalink: /contact/
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
     margin-bottom: 0.5rem;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .contact-link:hover {

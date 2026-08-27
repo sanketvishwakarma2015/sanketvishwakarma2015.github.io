@@ -18,9 +18,10 @@ if (stage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
     const colors = [0x6366f1, 0x8b5cf6, 0xec4899];
 
-    // Centerpiece: a glowing wireframe torus knot.
-    const knotGeometry = new THREE.TorusKnotGeometry(2, 0.55, 180, 24);
-    const knotMaterial = new THREE.MeshBasicMaterial({ color: 0x8b5cf6, wireframe: true, transparent: true, opacity: 0.85 });
+    // Centerpiece: a glowing low-poly wireframe torus knot (kept sparse so it
+    // reads as a wireframe sculpture instead of a dense mesh blob).
+    const knotGeometry = new THREE.TorusKnotGeometry(2, 0.5, 64, 8);
+    const knotMaterial = new THREE.MeshBasicMaterial({ color: 0x8b5cf6, wireframe: true, transparent: true, opacity: 0.7 });
     const knot = new THREE.Mesh(knotGeometry, knotMaterial);
     scene.add(knot);
 
