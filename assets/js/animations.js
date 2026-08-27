@@ -65,8 +65,9 @@ if (reduceMotion) {
 // Runs regardless of reduceMotion (just skips the tween if reduced)
 document.querySelectorAll('.stat-num[data-count]').forEach(el => {
   const target = parseInt(el.dataset.count, 10);
-  if (reduceMotion) { el.textContent = target; return; }
-  el.textContent = '0';
+  const suffix = el.dataset.suffix || '';
+  if (reduceMotion) { el.textContent = target + suffix; return; }
+  el.textContent = '0' + suffix;
   let started = false;
   inView(el, () => {
     if (started) return; started = true;
@@ -75,7 +76,7 @@ document.querySelectorAll('.stat-num[data-count]').forEach(el => {
     function tick(now) {
       const p = Math.min((now - t0) / dur, 1);
       const ease = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(ease * target);
+      el.textContent = Math.round(ease * target) + suffix;
       if (p < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);

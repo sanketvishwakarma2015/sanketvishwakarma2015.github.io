@@ -25,13 +25,13 @@ layout: default
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat">
-                        <div class="stat-num" data-count="50">50<span>+</span></div>
-                        <div class="stat-label">Pipelines</div>
+                        <div class="stat-num" data-count="100" data-suffix="K+">100<span>K+</span></div>
+                        <div class="stat-label">Cloud Saved</div>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat">
-                        <div class="stat-num" data-count="3">3</div>
-                        <div class="stat-label">Cloud Platforms</div>
+                        <div class="stat-num" data-count="65" data-suffix="%">65<span>%</span></div>
+                        <div class="stat-label">Data Quality ↑</div>
                     </div>
                 </div>
                 <div class="cta-buttons">
@@ -57,24 +57,24 @@ layout: default
         </div>
         <div class="cards-grid">
             <div class="card">
-                <div class="card-icon"><i class="fas fa-database"></i></div>
-                <h3>Data Engineering</h3>
-                <p>Designing and building robust ETL/ELT pipelines, data warehouses, and lakehouses that handle large-scale processing efficiently.</p>
+                <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                <h3>Data Lakehouse Engineering</h3>
+                <p>Building end-to-end lakehouse pipelines with PySpark, Delta Lake, and Databricks Lakeflow. Ran enterprise-scale data migrations across Snowflake, Databricks, and AWS post-acquisition.</p>
             </div>
             <div class="card">
-                <div class="card-icon"><i class="fas fa-cloud"></i></div>
-                <h3>Cloud Architecture</h3>
-                <p>Implementing scalable cloud-native solutions on AWS, Azure, and GCP — from serverless data platforms to managed streaming clusters.</p>
+                <div class="card-icon"><i class="fas fa-brain"></i></div>
+                <h3>GenAI-Powered Data Quality</h3>
+                <p>Built an LLM-driven Snowflake Streamlit app where AI writes SQL validation rules at runtime — integrated with DBT and a full approval workflow. Improved data quality by 65%.</p>
             </div>
             <div class="card">
-                <div class="card-icon"><i class="fas fa-stream"></i></div>
-                <h3>Real-time Streaming</h3>
-                <p>Building sub-second event-driven systems with Apache Kafka, Flink, and Kinesis — processing millions of events per second reliably.</p>
+                <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
+                <h3>Cloud Cost Optimization</h3>
+                <p>Reduced AWS and Snowflake spend by $100K+/year through KMS key audits, small-file compaction, cold-data archival, and warehouse scheduling optimization across the data platform.</p>
             </div>
             <div class="card">
-                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Analytics Engineering</h3>
-                <p>Crafting data models with dbt, Snowflake, and BigQuery that power BI dashboards and enable self-serve analytics across the business.</p>
+                <div class="card-icon"><i class="fas fa-code-branch"></i></div>
+                <h3>DataOps & CI/CD</h3>
+                <p>Owned DevOps for data teams: IAM-governed repo deployments, auto-merge pipelines, and real-time monitoring dashboards (Python + Step Functions + Lambda) — cutting manual monitoring by 70%.</p>
             </div>
         </div>
     </div>
@@ -88,24 +88,24 @@ layout: default
             <p class="section-subtitle">Battle-tested tools I use to ship reliable data systems.</p>
         </div>
         <div class="tech-stack">
+            <span class="tech-badge">PySpark</span>
             <span class="tech-badge">Python</span>
             <span class="tech-badge">SQL</span>
-            <span class="tech-badge">Apache Spark</span>
-            <span class="tech-badge">Airflow</span>
-            <span class="tech-badge">Kafka</span>
-            <span class="tech-badge">AWS</span>
-            <span class="tech-badge">Azure</span>
-            <span class="tech-badge">GCP</span>
+            <span class="tech-badge">Databricks</span>
             <span class="tech-badge">Snowflake</span>
-            <span class="tech-badge">dbt</span>
-            <span class="tech-badge">Docker</span>
-            <span class="tech-badge">Kubernetes</span>
+            <span class="tech-badge">Delta Lake</span>
+            <span class="tech-badge">DBT</span>
+            <span class="tech-badge">AWS</span>
+            <span class="tech-badge">AWS Glue</span>
+            <span class="tech-badge">Lambda</span>
+            <span class="tech-badge">Step Functions</span>
+            <span class="tech-badge">Airflow</span>
             <span class="tech-badge">Terraform</span>
+            <span class="tech-badge">Streamlit</span>
             <span class="tech-badge">PostgreSQL</span>
-            <span class="tech-badge">MongoDB</span>
-            <span class="tech-badge">Flink</span>
-            <span class="tech-badge">Redshift</span>
-            <span class="tech-badge">BigQuery</span>
+            <span class="tech-badge">Power BI</span>
+            <span class="tech-badge">CI/CD</span>
+            <span class="tech-badge">Node.js</span>
         </div>
     </div>
 </section>
