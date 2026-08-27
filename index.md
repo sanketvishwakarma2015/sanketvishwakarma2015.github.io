@@ -16,7 +16,7 @@ layout: default
                     <span class="tw-static">I build </span><span class="typewriter" data-words='["data pipelines","cloud platforms","ETL workflows","data warehouses","real-time streams","analytics systems"]'></span>
                 </div>
                 <p class="hero-desc">
-                    Senior Data Engineer specializing in scalable data infrastructure, real-time streaming, and cloud-native solutions on AWS, Azure & GCP. Turning raw data into reliable, actionable insights.
+                    Data Engineer with 5 years building data platforms on AWS, Databricks, and Snowflake — end-to-end, from architecture through release. Cutting cloud costs by $100K+, shipping GenAI-powered tooling, and making data trustworthy at scale.
                 </p>
                 <div class="hero-stats">
                     <div class="stat">
@@ -42,6 +42,10 @@ layout: default
                         <i class="fas fa-paper-plane"></i> Hire Me
                     </a>
                 </div>
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    <span>Currently @ Mars &mdash; Data &amp; Analytics Platform</span>
+                </div>
             </div>
             <div class="hero-stage" id="heroStage" aria-hidden="true"></div>
         </div>
@@ -57,33 +61,39 @@ layout: default
         </div>
         <div class="cards-grid">
             <div class="card">
+                <span class="card-num">01</span>
                 <div class="card-icon"><i class="fas fa-layer-group"></i></div>
                 <h3>Data Lakehouse Engineering</h3>
                 <p>Building end-to-end lakehouse pipelines with PySpark, Delta Lake, and Databricks Lakeflow. Ran enterprise-scale data migrations across Snowflake, Databricks, and AWS post-acquisition.</p>
             </div>
             <div class="card">
+                <span class="card-num">02</span>
                 <div class="card-icon"><i class="fas fa-brain"></i></div>
                 <h3>GenAI-Powered Data Quality</h3>
                 <p>Built an LLM-driven Snowflake Streamlit app where AI writes SQL validation rules at runtime — integrated with DBT and a full approval workflow. Improved data quality by 65%.</p>
             </div>
             <div class="card">
+                <span class="card-num">03</span>
                 <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
                 <h3>Cloud Cost Optimization</h3>
                 <p>Reduced AWS and Snowflake spend by $100K+/year through KMS key audits, small-file compaction, cold-data archival, and warehouse scheduling optimization across the data platform.</p>
             </div>
             <div class="card">
+                <span class="card-num">04</span>
                 <div class="card-icon"><i class="fas fa-code-branch"></i></div>
-                <h3>DataOps & CI/CD</h3>
+                <h3>DataOps &amp; CI/CD</h3>
                 <p>Owned DevOps for data teams: IAM-governed repo deployments, auto-merge pipelines, and real-time monitoring dashboards (Python + Step Functions + Lambda) — cutting manual monitoring by 70%.</p>
             </div>
             <div class="card">
+                <span class="card-num">05</span>
                 <div class="card-icon"><i class="fas fa-server"></i></div>
-                <h3>System Design & App Infra</h3>
+                <h3>System Design &amp; App Infra</h3>
                 <p>Architected production Elastic Beanstalk setups running Node.js, Next.js, and Streamlit apps. Designed secure AWS Lake Formation governance, SSO/SSL integrations, and role-based access across multi-team data platforms.</p>
             </div>
             <div class="card">
+                <span class="card-num">06</span>
                 <div class="card-icon"><i class="fas fa-robot"></i></div>
-                <h3>Vibe Coding & AI Agents</h3>
+                <h3>Vibe Coding &amp; AI Agents</h3>
                 <p>Building experimental systems with MCP connectors, LLM-powered agents, and AI toolchains — from autonomous data pipelines to GenAI apps that harness models for real engineering workflows.</p>
             </div>
         </div>
