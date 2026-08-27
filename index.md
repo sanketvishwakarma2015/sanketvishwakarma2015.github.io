@@ -76,6 +76,16 @@ layout: default
                 <h3>DataOps & CI/CD</h3>
                 <p>Owned DevOps for data teams: IAM-governed repo deployments, auto-merge pipelines, and real-time monitoring dashboards (Python + Step Functions + Lambda) — cutting manual monitoring by 70%.</p>
             </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-server"></i></div>
+                <h3>System Design & App Infra</h3>
+                <p>Architected production Elastic Beanstalk setups running Node.js, Next.js, and Streamlit apps. Designed secure AWS Lake Formation governance, SSO/SSL integrations, and role-based access across multi-team data platforms.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-robot"></i></div>
+                <h3>Vibe Coding & AI Agents</h3>
+                <p>Building experimental systems with MCP connectors, LLM-powered agents, and AI toolchains — from autonomous data pipelines to GenAI apps that harness models for real engineering workflows.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -96,16 +106,21 @@ layout: default
             <span class="tech-badge">Delta Lake</span>
             <span class="tech-badge">DBT</span>
             <span class="tech-badge">AWS</span>
+            <span class="tech-badge">Lake Formation</span>
+            <span class="tech-badge">Elastic Beanstalk</span>
             <span class="tech-badge">AWS Glue</span>
             <span class="tech-badge">Lambda</span>
             <span class="tech-badge">Step Functions</span>
             <span class="tech-badge">Airflow</span>
             <span class="tech-badge">Terraform</span>
             <span class="tech-badge">Streamlit</span>
-            <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">LLM / GenAI</span>
+            <span class="tech-badge">MCP Connectors</span>
+            <span class="tech-badge">AI Agents</span>
             <span class="tech-badge">Power BI</span>
-            <span class="tech-badge">CI/CD</span>
+            <span class="tech-badge">PostgreSQL</span>
             <span class="tech-badge">Node.js</span>
+            <span class="tech-badge">CI/CD</span>
         </div>
     </div>
 </section>
