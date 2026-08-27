@@ -28,7 +28,7 @@ permalink: /contact/
                 </a>
                 <p class="contact-note">Best for detailed inquiries</p>
             </div>
-            
+
             <div class="contact-card">
                 <div class="contact-icon">
                     <i class="fas fa-phone"></i>
@@ -39,7 +39,7 @@ permalink: /contact/
                 </a>
                 <p class="contact-note">Available during business hours (IST)</p>
             </div>
-            
+
             <div class="contact-card">
                 <div class="contact-icon">
                     <i class="fab fa-linkedin"></i>
@@ -50,7 +50,7 @@ permalink: /contact/
                 </a>
                 <p class="contact-note">Let's expand our network</p>
             </div>
-            
+
             <div class="contact-card">
                 <div class="contact-icon">
                     <i class="fab fa-github"></i>
@@ -114,6 +114,7 @@ permalink: /contact/
             </div>
         </div>
     </div>
+
 </section>
 
 <style>

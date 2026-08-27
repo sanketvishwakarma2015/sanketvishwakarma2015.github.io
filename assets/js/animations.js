@@ -1,4 +1,4 @@
-// Motion.dev v10 — scroll-linked animations with dramatic card entrances,
+// Motion.dev v10 ï¿½ scroll-linked animations with dramatic card entrances,
 // wipe-in text reveals, counters, and a parallax hero stage.
 import { animate, inView, stagger, scroll } from 'https://cdn.jsdelivr.net/npm/motion@10.18.0/+esm';
 
@@ -35,7 +35,7 @@ if (reduceMotion) {
   document.querySelectorAll('.section-label,.section-title,.section-subtitle,.card,.tech-badge,.blog-post,.cta-band').forEach(el => (el.style.opacity = 1));
 } else {
 
-  // -- SECTION LABEL — fade + slide ------------------------------------------
+  // -- SECTION LABEL ï¿½ fade + slide ------------------------------------------
   document.querySelectorAll('.section-label').forEach(el => {
     el.style.opacity = 0;
     inView(el, () => animate(el,
@@ -44,7 +44,7 @@ if (reduceMotion) {
     ), { margin: '0px 0px -5% 0px' });
   });
 
-  // -- SECTION TITLE — clip-path wipe in from left (works with gradient text) -
+  // -- SECTION TITLE ï¿½ clip-path wipe in from left (works with gradient text) -
   document.querySelectorAll('.section-title').forEach(el => {
     el.style.opacity = 0;
     el.style.clipPath = 'inset(0 100% 0 0)';
@@ -54,7 +54,7 @@ if (reduceMotion) {
     ), { margin: '0px 0px -5% 0px' });
   });
 
-  // -- SECTION SUBTITLE — fade + slide --------------------------------------
+  // -- SECTION SUBTITLE ï¿½ fade + slide --------------------------------------
   document.querySelectorAll('.section-subtitle').forEach(el => {
     el.style.opacity = 0;
     inView(el, () => animate(el,
@@ -63,7 +63,7 @@ if (reduceMotion) {
     ), { margin: '0px 0px -5% 0px' });
   });
 
-  // -- CARDS — fly in from alternating sides with 3D tilt -------------------
+  // -- CARDS ï¿½ fly in from alternating sides with 3D tilt -------------------
   document.querySelectorAll('.cards-grid').forEach(group => {
     const items = [...group.children];
     items.forEach((el, i) => {
@@ -91,7 +91,7 @@ if (reduceMotion) {
     }, { margin: '0px 0px -10% 0px' });
   });
 
-  // -- TECH BADGES — cascade in like typing ---------------------------------
+  // -- TECH BADGES ï¿½ cascade in like typing ---------------------------------
   document.querySelectorAll('.tech-stack').forEach(group => {
     const items = [...group.children];
     items.forEach(el => (el.style.opacity = 0));
@@ -103,7 +103,7 @@ if (reduceMotion) {
     }, { margin: '0px 0px -8% 0px' });
   });
 
-  // -- BLOG POSTS — slide in from left --------------------------------------
+  // -- BLOG POSTS ï¿½ slide in from left --------------------------------------
   document.querySelectorAll('.blog-posts').forEach(group => {
     const items = [...group.children];
     items.forEach(el => (el.style.opacity = 0));
@@ -115,7 +115,7 @@ if (reduceMotion) {
     }, { margin: '0px 0px -8% 0px' });
   });
 
-  // -- CTA BAND — scale up from below ---------------------------------------
+  // -- CTA BAND ï¿½ scale up from below ---------------------------------------
   const ctaBand = document.querySelector('.cta-band');
   if (ctaBand) {
     ctaBand.style.opacity = 0;
