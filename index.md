@@ -163,11 +163,14 @@ layout: default
 <section class="section">
     <div class="container">
         <div class="cta-band">
+            <div class="globe-wrap" id="globeStage" aria-hidden="true"></div>
+            <div style="position:relative;z-index:1;">
             <h2>Ready to build something great?</h2>
             <p>I'm open to consulting, full-time roles, and data engineering collaborations. Let's talk.</p>
             <div class="cta-buttons" style="justify-content:center;">
                 <a href="/contact/" class="btn btn-primary magnetic"><i class="fas fa-envelope"></i> Get in Touch</a>
                 <a href="https://www.linkedin.com/in/sanket-vishwakarma-902953109/" class="btn btn-secondary magnetic" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
             </div>
         </div>
     </div>
